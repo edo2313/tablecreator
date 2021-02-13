@@ -1,4 +1,21 @@
 function createTable(){
-    input = document.getElementById('input').value;
-    console.log(input);
+    lines = document.getElementById('input').value.split('\n');
+    var output = '<table style="width:100%; font-weight: 700; text-align: center;">'
+    var column = 1;
+    lines.forEach(value => {
+        if(column == 1)
+            output += "<tr>";
+        let link = value.toLowerCase().split(' ').join('-');
+        let name = value.split(' ').pop().toUpperCase().push();
+        output += '<td><a target="_blank" href="http://medyapro.it/'+link+'">'+name+'</a></td>';
+        column++;
+        if( column > 4) {
+            output += '</tr>';
+            column == 1;
+        }
+    });
+    if(column !=1 )
+        output += '</tr>';
+    output += '</table>';
+    document.getElementById('output').value = output;
 }
