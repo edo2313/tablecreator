@@ -1,4 +1,4 @@
 function createTable(){
-    input = document.getElementById('input');
+    input = document.getElementById('input').value;
     console.log(input);
 }
